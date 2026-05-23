@@ -63,7 +63,7 @@ const PROJECTS = [
     ],
     tech: ["Node.JS", "Express.JS", "MySQL", "HTML5", "CSS3", "JavaScript", "Bootstrap 5"],
     num: "03",
-    github: "https://github.com/rajbaidiyavadara",
+    github: "https://github.com/rajbaidiyavadara/travelx-booking-platform",
     live: null,
   },
   {
@@ -81,7 +81,7 @@ const PROJECTS = [
     ],
     tech: ["Node.JS", "Express.JS", "MySQL", "HTML5", "CSS3", "JavaScript"],
     num: "04",
-    github: "https://github.com/rajbaidiyavadara",
+    github: "https://github.com/rajbaidiyavadara/hotel-management-system",
     live: null,
   },
 ];
