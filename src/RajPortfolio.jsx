@@ -48,6 +48,42 @@ const PROJECTS = [
     github: "https://github.com/rajbaidiyavadara/wibexs-agricultural-website",
     live: null,
   },
+  {
+    id: 3,
+    title: "Travelix — Travel Booking Platform",
+    type: "Full Stack",
+    short: "Feature-rich travel booking platform with bus seat selection, real-time booking, ticket cancellation with 75% refund system, and a complete admin dashboard.",
+    features: [
+      "Real-time bus seat selection & booking",
+      "User registration & login system",
+      "Ticket cancellation with 75% auto-refund",
+      "Admin dashboard for bookings & messages",
+      "Tour package booking system",
+      "Contact & inquiry management",
+    ],
+    tech: ["Node.JS", "Express.JS", "MySQL", "HTML5", "CSS3", "JavaScript", "Bootstrap 5"],
+    num: "03",
+    github: "https://github.com/rajbaidiyavadara",
+    live: null,
+  },
+  {
+    id: 4,
+    title: "UrbanStay — Hotel Management",
+    type: "Full Stack",
+    short: "Luxury hotel management system with room booking, in-room food ordering, user authentication, newsletter subscription, and an elegant dark-gold UI.",
+    features: [
+      "Room booking with check-in/check-out",
+      "In-room food order system",
+      "User login & registration",
+      "Newsletter subscription",
+      "Responsive dark luxury UI",
+      "Admin data management",
+    ],
+    tech: ["Node.JS", "Express.JS", "MySQL", "HTML5", "CSS3", "JavaScript"],
+    num: "04",
+    github: "https://github.com/rajbaidiyavadara",
+    live: null,
+  },
 ];
 
 const NAV = ["About", "Skills", "Experience", "Projects", "Contact"];
@@ -117,32 +153,21 @@ function ProjectDetail({ project, onBack }) {
   return (
     <div style={{ minHeight: "100vh", background: "#faf8f5", paddingTop: 80 }}>
       <div style={{ maxWidth: 900, margin: "0 auto", padding: "60px 5vw" }}>
-
-        {/* Back Button — black box style */}
         <button
           onClick={onBack}
-          style={{
-            display: "inline-flex", alignItems: "center", gap: 10,
-            background: "#1a1a1a", color: "#faf8f5",
-            border: "none", cursor: "pointer",
-            fontSize: 13, letterSpacing: "0.12em", textTransform: "uppercase",
-            fontFamily: "'Georgia', serif", padding: "13px 28px",
-            marginBottom: 52, transition: "background 0.2s"
-          }}
-          onMouseEnter={e => e.target.style.background = "#c8a96e"}
-          onMouseLeave={e => e.target.style.background = "#1a1a1a"}
+          style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "#1a1a1a", color: "#faf8f5", border: "none", cursor: "pointer", fontSize: 13, letterSpacing: "0.12em", textTransform: "uppercase", fontFamily: "'Georgia', serif", padding: "13px 28px", marginBottom: 52, transition: "background 0.2s" }}
+          onMouseEnter={e => e.currentTarget.style.background = "#c8a96e"}
+          onMouseLeave={e => e.currentTarget.style.background = "#1a1a1a"}
         >
           ← Back to Portfolio
         </button>
 
-        {/* Header */}
         <div style={{ marginBottom: 48 }}>
           <span style={{ fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: "#c8a96e", fontFamily: "'Courier New', monospace" }}>{project.type}</span>
           <h1 style={{ fontSize: "clamp(2rem,5vw,3.5rem)", fontWeight: 700, color: "#1a1a1a", fontFamily: "'Georgia', serif", margin: "12px 0 20px", lineHeight: 1.1 }}>{project.title}</h1>
           <p style={{ fontSize: 17, lineHeight: 1.9, color: "#555", maxWidth: 680 }}>{project.short}</p>
         </div>
 
-        {/* GitHub Button only */}
         <div style={{ display: "flex", gap: 14, marginBottom: 56, flexWrap: "wrap" }}>
           <a href={project.github} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
             <button style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "13px 28px", background: "#1a1a1a", color: "#faf8f5", border: "none", cursor: "pointer", fontSize: 13, letterSpacing: "0.1em", textTransform: "uppercase", fontFamily: "'Georgia', serif" }}>
@@ -153,7 +178,6 @@ function ProjectDetail({ project, onBack }) {
 
         <div style={{ width: "100%", height: 1, background: "#e8e0d4", marginBottom: 56 }} />
 
-        {/* Features */}
         <div style={{ marginBottom: 56 }}>
           <p style={{ fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: "#c8a96e", marginBottom: 12, fontFamily: "'Courier New', monospace" }}>Key Features</p>
           <div style={{ width: 48, height: 2, background: "#c8a96e", marginBottom: 28, borderRadius: 1 }} />
@@ -167,7 +191,6 @@ function ProjectDetail({ project, onBack }) {
           </div>
         </div>
 
-        {/* Tech Stack */}
         <div>
           <p style={{ fontSize: 11, letterSpacing: "0.2em", textTransform: "uppercase", color: "#c8a96e", marginBottom: 12, fontFamily: "'Courier New', monospace" }}>Tech Stack</p>
           <div style={{ width: 48, height: 2, background: "#c8a96e", marginBottom: 24, borderRadius: 1 }} />
@@ -177,7 +200,6 @@ function ProjectDetail({ project, onBack }) {
             ))}
           </div>
         </div>
-
       </div>
     </div>
   );
@@ -199,7 +221,6 @@ export default function Portfolio() {
     setActive(id);
   };
 
-  // FIX 1: Back aane par Projects section par scroll karo + navbar highlight
   const handleBack = () => {
     setSelectedProject(null);
     setActive("Projects");
@@ -215,8 +236,6 @@ export default function Portfolio() {
   const S = {
     root: { fontFamily: "'Georgia', 'Times New Roman', serif", background: "#faf8f5", color: "#1a1a1a", margin: 0, padding: 0, minHeight: "100vh" },
     nav: { position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: scrolled ? "rgba(250,248,245,0.97)" : "transparent", borderBottom: scrolled ? "1px solid #e8e0d4" : "1px solid transparent", transition: "all 0.4s ease", padding: "0 5vw", display: "flex", alignItems: "center", justifyContent: "space-between", height: 64 },
-    logo: { fontFamily: "'Georgia', serif", fontSize: 19, fontWeight: 700, color: "#1a1a1a", letterSpacing: "0.04em", cursor: "pointer" },
-    navLinks: { display: "flex", gap: 36, listStyle: "none", margin: 0, padding: 0 },
     sectionLabel: { fontSize: 11, letterSpacing: "0.25em", textTransform: "uppercase", color: "#c8a96e", marginBottom: 12, fontFamily: "'Courier New', monospace" },
     h2: { fontSize: "clamp(1.8rem,3.5vw,2.8rem)", fontWeight: 700, color: "#1a1a1a", margin: "0 0 56px", fontFamily: "'Georgia', serif", lineHeight: 1.15 },
     divider: { width: 48, height: 2, background: "#c8a96e", marginBottom: 20, borderRadius: 1 },
@@ -236,13 +255,14 @@ export default function Portfolio() {
         .proj-card:hover .proj-arrow { opacity: 1 !important; transform: translateX(0) !important; }
         .nav-link:hover { color: #c8a96e !important; }
         .btn-hire:hover { background: #c8a96e !important; border-color: #c8a96e !important; color: #1a1a1a !important; }
-        @media(max-width:680px){ .grid2{grid-template-columns:1fr !important;} .nav-links{display:none !important;} }
+        .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        @media(max-width:680px){ .grid2{grid-template-columns:1fr !important;} .nav-links{display:none !important;} .proj-grid{grid-template-columns:1fr !important;} }
       `}</style>
 
       {/* NAV */}
       <nav style={S.nav}>
-        <div style={S.logo} onClick={() => scrollTo("about")}>R.B.</div>
-        <ul style={S.navLinks} className="nav-links">
+        <div style={{ fontFamily: "'Georgia', serif", fontSize: 19, fontWeight: 700, color: "#1a1a1a", letterSpacing: "0.04em", cursor: "pointer" }} onClick={() => scrollTo("about")}>R.B.</div>
+        <ul style={{ display: "flex", gap: 36, listStyle: "none", margin: 0, padding: 0 }} className="nav-links">
           {NAV.map(n => (
             <li key={n} onClick={() => scrollTo(n)} className="nav-link" style={{ fontSize: 13, fontWeight: 400, letterSpacing: "0.1em", textTransform: "uppercase", color: active === n ? "#c8a96e" : "#555", cursor: "pointer", borderBottom: active === n ? "1px solid #c8a96e" : "1px solid transparent", paddingBottom: 2, transition: "color 0.2s" }}>{n}</li>
           ))}
@@ -294,7 +314,7 @@ export default function Portfolio() {
             </FadeUp>
             <FadeUp delay={0.2}>
               <div style={{ display: "flex", flexDirection: "column", gap: 20, paddingTop: 8 }}>
-                {[["Location", "Rajkot, Gujarat 360001"], ["Phone", "+91 63559 01117"], ["Email", "baidiyavadararaj@gmail.com"], ["University", "Darshan University"], ["Languages", "English · Gujarati · Hindi"]].map(([k, v]) => (
+                {[["Location", "Rajkot, Gujarat, India"], ["Phone", "+91 63559 01117"], ["Email", "baidiyavadararaj@gmail.com"], ["University", "Darshan University"], ["Languages", "English · Gujarati · Hindi"]].map(([k, v]) => (
                   <div key={k} style={{ display: "flex", gap: 20, borderBottom: "1px solid #f0ebe3", paddingBottom: 16 }}>
                     <span style={{ fontSize: 11, letterSpacing: "0.15em", textTransform: "uppercase", color: "#c8a96e", minWidth: 100, paddingTop: 2, fontFamily: "'Courier New', monospace" }}>{k}</span>
                     <span style={{ fontSize: 15, color: "#333" }}>{v}</span>
@@ -374,25 +394,27 @@ export default function Portfolio() {
           <div style={S.divider} />
           <h2 style={S.h2}>Selected Work</h2>
         </FadeUp>
-        {PROJECTS.map((p, i) => (
-          <FadeUp key={p.title} delay={i * 0.15}>
-            <div className="proj-card" onClick={() => setSelectedProject(p)} style={{ background: "#fff", border: "1px solid #e8e0d4", padding: "32px 36px", marginBottom: 28 }}>
-              <span style={{ fontSize: "clamp(3rem,6vw,5rem)", fontWeight: 700, color: "#f0ebe3", fontFamily: "'Georgia', serif", lineHeight: 1, marginBottom: -10, display: "block" }}>{p.num}</span>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 12, marginBottom: 16 }}>
-                <div>
-                  <span style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", color: "#c8a96e", fontFamily: "'Courier New', monospace" }}>{p.type}</span>
-                  <h3 style={{ fontSize: 22, fontWeight: 700, color: "#1a1a1a", fontFamily: "'Georgia', serif", marginTop: 6 }}>{p.title}</h3>
+        <div className="proj-grid">
+          {PROJECTS.map((p, i) => (
+            <FadeUp key={p.title} delay={i * 0.1}>
+              <div className="proj-card" onClick={() => setSelectedProject(p)} style={{ background: "#fff", border: "1px solid #e8e0d4", padding: "28px 28px", height: "100%" }}>
+                <span style={{ fontSize: "clamp(2rem,4vw,3.5rem)", fontWeight: 700, color: "#f0ebe3", fontFamily: "'Georgia', serif", lineHeight: 1, marginBottom: -8, display: "block" }}>{p.num}</span>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 12, marginBottom: 12 }}>
+                  <div>
+                    <span style={{ fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase", color: "#c8a96e", fontFamily: "'Courier New', monospace" }}>{p.type}</span>
+                    <h3 style={{ fontSize: 18, fontWeight: 700, color: "#1a1a1a", fontFamily: "'Georgia', serif", marginTop: 5, lineHeight: 1.3 }}>{p.title}</h3>
+                  </div>
+                  <span className="proj-arrow" style={{ fontSize: 20, color: "#c8a96e", opacity: 0, transform: "translateX(-8px)", transition: "all 0.25s ease", flexShrink: 0 }}>→</span>
                 </div>
-                <span className="proj-arrow" style={{ fontSize: 22, color: "#c8a96e", opacity: 0, transform: "translateX(-8px)", transition: "all 0.25s ease" }}>→</span>
+                <p style={{ fontSize: 14, lineHeight: 1.75, color: "#777", marginBottom: 16 }}>{p.short}</p>
+                <div style={{ borderTop: "1px solid #f0ebe3", paddingTop: 14 }}>
+                  {p.tech.slice(0, 4).map(t => <span key={t} style={S.chip}>{t}</span>)}
+                  {p.tech.length > 4 && <span style={{ ...S.chip, background: "#e8e0d4" }}>+{p.tech.length - 4}</span>}
+                </div>
               </div>
-              <p style={{ fontSize: 15, lineHeight: 1.8, color: "#666", marginBottom: 20 }}>{p.short}</p>
-              <div style={{ borderTop: "1px solid #f0ebe3", paddingTop: 16, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-                <div>{p.tech.map(t => <span key={t} style={S.chip}>{t}</span>)}</div>
-                <span style={{ fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", color: "#c8a96e", fontFamily: "'Courier New', monospace" }}>Click to view details →</span>
-              </div>
-            </div>
-          </FadeUp>
-        ))}
+            </FadeUp>
+          ))}
+        </div>
       </div>
 
       {/* CONTACT */}
